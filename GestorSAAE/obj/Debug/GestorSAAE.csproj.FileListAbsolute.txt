@@ -1,0 +1,10 @@
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.csprojAssemblyReference.cache
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.Properties.Resources.resources
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.csproj.GenerateResource.cache
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.csproj.CoreCompileInputs.cache
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.exe.config
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.exe
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.pdb
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.exe
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.pdb
+G:\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.LoginForm.resources
