@@ -43,6 +43,7 @@
             this.limpar_button = new System.Windows.Forms.Button();
             this.entrar_button = new System.Windows.Forms.Button();
             this.login_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.mensagem_label = new System.Windows.Forms.Label();
             this.login_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logotipo_pictureBox)).BeginInit();
@@ -52,11 +53,11 @@
             // 
             this.gestor_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gestor_label.AutoSize = true;
-            this.gestor_label.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gestor_label.Font = new System.Drawing.Font("Bauhaus 93", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestor_label.ForeColor = System.Drawing.Color.SteelBlue;
             this.gestor_label.Location = new System.Drawing.Point(124, 29);
             this.gestor_label.Name = "gestor_label";
-            this.gestor_label.Size = new System.Drawing.Size(104, 45);
+            this.gestor_label.Size = new System.Drawing.Size(108, 42);
             this.gestor_label.TabIndex = 0;
             this.gestor_label.Text = "Login";
             // 
@@ -65,6 +66,7 @@
             this.login_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.login_groupBox.Controls.Add(this.mensagem_label);
             this.login_groupBox.Controls.Add(this.pictureBox1);
             this.login_groupBox.Controls.Add(this.autenticar_checkBox);
             this.login_groupBox.Controls.Add(this.logotipo_pictureBox);
@@ -190,6 +192,15 @@
             this.entrar_button.UseVisualStyleBackColor = true;
             this.entrar_button.Click += new System.EventHandler(this.entrar_button_Click);
             // 
+            // mensagem_label
+            // 
+            this.mensagem_label.AutoSize = true;
+            this.mensagem_label.Location = new System.Drawing.Point(3, 175);
+            this.mensagem_label.Name = "mensagem_label";
+            this.mensagem_label.Size = new System.Drawing.Size(16, 13);
+            this.mensagem_label.TabIndex = 11;
+            this.mensagem_label.Text = "...";
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.entrar_button;
@@ -232,6 +243,7 @@
         private System.Windows.Forms.CheckBox autenticar_checkBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip login_toolTip;
+        private System.Windows.Forms.Label mensagem_label;
     }
 }
 

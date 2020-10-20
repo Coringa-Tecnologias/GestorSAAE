@@ -5,13 +5,16 @@ using System.Text;
 
 namespace GestorSAAE.Entidades
 {
-    public class Funcionario
+    public class FuncionarioEnt
     {
         private int id;
         private string nome;
-        private string usuario;
+        private string funcionario;
         private string senha;
         private bool autenticacao;
+        private string email;
+        private int tipo;
+
 
         public int Id 
         { 
@@ -23,10 +26,10 @@ namespace GestorSAAE.Entidades
             get => nome; 
             set => nome = value; 
         }
-        public string Usuario 
+        public string Funcionario 
         { 
-            get => usuario; 
-            set => usuario = value; 
+            get => funcionario; 
+            set => funcionario = value; 
         }
         public string Senha 
         { 
@@ -37,6 +40,16 @@ namespace GestorSAAE.Entidades
         { 
             get => autenticacao; 
             set => autenticacao = value; 
+        }
+        public string Email 
+        { 
+            get => email; 
+            set => email = value; 
+        }
+        public int Tipo 
+        { 
+            get => tipo;
+            set => tipo = value; 
         }
     }
 }

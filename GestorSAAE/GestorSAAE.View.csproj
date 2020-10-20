@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadFuncionarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadFuncionarioForm.Designer.cs">
+      <DependentUpon>CadFuncionarioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadFuncionarioForm.resx">
+      <DependentUpon>CadFuncionarioForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +95,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gestorWsly.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestorSAAE.Entidades\GestorSAAE.Entidades.csproj">
+      <Project>{198c5443-0b6e-48a6-88c7-bd23ede1cb56}</Project>
+      <Name>GestorSAAE.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestorSAAE.Model\GestorSAAE.Model.csproj">
+      <Project>{fc3d0f48-8912-4ee2-98f1-c57c83a8c3e0}</Project>
+      <Name>GestorSAAE.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,3 +8,9 @@ G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\Ges
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.csproj.CoreCompileInputs.cache
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.exe
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.Entidades.dll
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.Model.dll
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.Entidades.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.Model.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.CadFuncionarioForm.resources
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.csproj.CopyComplete

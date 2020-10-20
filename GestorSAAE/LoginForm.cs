@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GestorSAAE.Model;
+using GestorSAAE.Entidades;
 
 namespace GestorSAAE
 {
@@ -30,6 +32,8 @@ namespace GestorSAAE
 
         private void entrar_button_Click(object sender, EventArgs e)
         {
+            CadFuncionarioForm form = new CadFuncionarioForm();
+            form.Show();
             ///Autenticar com aplicativo de QrCode do usuário
             if(autenticar_checkBox.Checked)
             {
