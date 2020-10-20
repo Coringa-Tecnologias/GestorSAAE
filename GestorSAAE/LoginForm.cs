@@ -27,5 +27,19 @@ namespace GestorSAAE
             senha_maskedTextBox.Clear();
             id_textBox.Focus();
         }
+
+        private void entrar_button_Click(object sender, EventArgs e)
+        {
+            ///Autenticar com aplicativo de QrCode do usuário
+            if(autenticar_checkBox.Checked)
+            {
+
+            }
+            ///Entrar sem autenticação
+            else
+            {
+
+            }
+        }
     }
 }

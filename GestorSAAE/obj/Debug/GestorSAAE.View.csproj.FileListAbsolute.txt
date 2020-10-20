@@ -1,0 +1,10 @@
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.exe.config
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.exe
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.csprojAssemblyReference.cache
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.LoginForm.resources
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.Properties.Resources.resources
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.csproj.GenerateResource.cache
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.csproj.CoreCompileInputs.cache
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.exe
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.pdb
