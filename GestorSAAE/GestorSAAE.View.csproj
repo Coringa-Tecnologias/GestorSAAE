@@ -56,6 +56,12 @@
     <Compile Include="CadFuncionarioForm.Designer.cs">
       <DependentUpon>CadFuncionarioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LocalizarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalizarForm.Designer.cs">
+      <DependentUpon>LocalizarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CadFuncionarioForm.resx">
       <DependentUpon>CadFuncionarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalizarForm.resx">
+      <DependentUpon>LocalizarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

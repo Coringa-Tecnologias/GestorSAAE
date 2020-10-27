@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.gestor_label = new System.Windows.Forms.Label();
             this.login_groupBox = new System.Windows.Forms.GroupBox();
+            this.mensagem_label = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.autenticar_checkBox = new System.Windows.Forms.CheckBox();
             this.logotipo_pictureBox = new System.Windows.Forms.PictureBox();
@@ -43,7 +44,6 @@
             this.limpar_button = new System.Windows.Forms.Button();
             this.entrar_button = new System.Windows.Forms.Button();
             this.login_toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.mensagem_label = new System.Windows.Forms.Label();
             this.login_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logotipo_pictureBox)).BeginInit();
@@ -55,7 +55,7 @@
             this.gestor_label.AutoSize = true;
             this.gestor_label.Font = new System.Drawing.Font("Bauhaus 93", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestor_label.ForeColor = System.Drawing.Color.SteelBlue;
-            this.gestor_label.Location = new System.Drawing.Point(124, 29);
+            this.gestor_label.Location = new System.Drawing.Point(115, 29);
             this.gestor_label.Name = "gestor_label";
             this.gestor_label.Size = new System.Drawing.Size(108, 42);
             this.gestor_label.TabIndex = 0;
@@ -84,6 +84,15 @@
             this.login_groupBox.TabIndex = 0;
             this.login_groupBox.TabStop = false;
             // 
+            // mensagem_label
+            // 
+            this.mensagem_label.AutoSize = true;
+            this.mensagem_label.Location = new System.Drawing.Point(3, 175);
+            this.mensagem_label.Name = "mensagem_label";
+            this.mensagem_label.Size = new System.Drawing.Size(16, 13);
+            this.mensagem_label.TabIndex = 11;
+            this.mensagem_label.Text = "...";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -104,6 +113,7 @@
             this.autenticar_checkBox.TabIndex = 5;
             this.autenticar_checkBox.Text = "Autenticar";
             this.autenticar_checkBox.UseVisualStyleBackColor = true;
+            this.autenticar_checkBox.Visible = false;
             // 
             // logotipo_pictureBox
             // 
@@ -149,11 +159,11 @@
             // 
             this.id_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.id_label.AutoSize = true;
-            this.id_label.Location = new System.Drawing.Point(48, 95);
+            this.id_label.Location = new System.Drawing.Point(21, 95);
             this.id_label.Name = "id_label";
-            this.id_label.Size = new System.Drawing.Size(21, 13);
+            this.id_label.Size = new System.Drawing.Size(68, 13);
             this.id_label.TabIndex = 1;
-            this.id_label.Text = "ID:";
+            this.id_label.Text = "Identificador:";
             // 
             // cancelar_button
             // 
@@ -191,15 +201,6 @@
             this.login_toolTip.SetToolTip(this.entrar_button, "Clique aqui para validar a senha e entrar no sistema");
             this.entrar_button.UseVisualStyleBackColor = true;
             this.entrar_button.Click += new System.EventHandler(this.entrar_button_Click);
-            // 
-            // mensagem_label
-            // 
-            this.mensagem_label.AutoSize = true;
-            this.mensagem_label.Location = new System.Drawing.Point(3, 175);
-            this.mensagem_label.Name = "mensagem_label";
-            this.mensagem_label.Size = new System.Drawing.Size(16, 13);
-            this.mensagem_label.TabIndex = 11;
-            this.mensagem_label.Text = "...";
             // 
             // LoginForm
             // 

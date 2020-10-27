@@ -14,3 +14,7 @@ G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\Ges
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.Model.pdb
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.CadFuncionarioForm.resources
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.csproj.CopyComplete
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.DAO.dll
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.DAO.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\bin\Debug\GestorSAAE.DAO.dll.config
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE\obj\Debug\GestorSAAE.View.LocalizarForm.resources

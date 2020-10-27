@@ -4,3 +4,5 @@ G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\Ges
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Entidades\obj\Debug\GestorSAAE.Entidades.csproj.CoreCompileInputs.cache
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Entidades\obj\Debug\GestorSAAE.Entidades.dll
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Entidades\obj\Debug\GestorSAAE.Entidades.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Entidades\obj\Debug\GestorSAAE.Entidades.Properties.Resources.resources
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Entidades\obj\Debug\GestorSAAE.Entidades.csproj.GenerateResource.cache

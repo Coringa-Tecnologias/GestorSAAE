@@ -7,3 +7,4 @@ G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\Ges
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.DAO\obj\Debug\GestorSAAE.DAO.csproj.CopyComplete
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.DAO\obj\Debug\GestorSAAE.DAO.dll
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.DAO\obj\Debug\GestorSAAE.DAO.pdb
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.DAO\bin\Debug\GestorSAAE.DAO.dll.config

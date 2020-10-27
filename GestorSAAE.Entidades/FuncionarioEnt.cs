@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -7,29 +8,29 @@ namespace GestorSAAE.Entidades
 {
     public class FuncionarioEnt
     {
-        private int id;
+        private int codigo;
         private string nome;
-        private string funcionario;
+        private string identificador;
         private string senha;
         private bool autenticacao;
+        private string celular;
         private string email;
         private int tipo;
 
-
-        public int Id 
+        public int Codigo 
         { 
-            get => id; 
-            set => id = value; 
+            get => codigo; 
+            set => codigo = value; 
         }
         public string Nome 
         { 
             get => nome; 
             set => nome = value; 
         }
-        public string Funcionario 
+        public string Identificador 
         { 
-            get => funcionario; 
-            set => funcionario = value; 
+            get => identificador; 
+            set => identificador = value; 
         }
         public string Senha 
         { 
@@ -50,6 +51,11 @@ namespace GestorSAAE.Entidades
         { 
             get => tipo;
             set => tipo = value; 
+        }
+        public string Celular 
+        { 
+            get => celular; 
+            set => celular = value; 
         }
     }
 }

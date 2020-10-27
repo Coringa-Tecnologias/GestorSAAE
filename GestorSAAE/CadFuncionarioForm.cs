@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestorSAAE.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,21 +7,52 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GestorSAAE.Model;
+using GestorSAAE.Entidades;
 
 namespace GestorSAAE
 {
     public partial class CadFuncionarioForm : Form
     {
+        FuncionarioEnt objTabela = new FuncionarioEnt();
+        
         private string opc = "";
         public CadFuncionarioForm()
         {
             InitializeComponent();
         }
 
-        private void novo_button_Click(object sender, EventArgs e)
+        private void HabilitarCampos()
         {
-            opc = "Novo";
-            iniciarOpc();
+            nome_textBox.Enabled = true;
+            identificador_textBox.Enabled = true;
+            senha_textBox.Enabled = true;
+            autenticacao_comboBox.Enabled = true;
+            email_textBox.Enabled = true;
+            tipo_comboBox.Enabled = true;
+            celular_maskedTextBox.Enabled = true;
+        }
+
+        private void DesabilitarCampos()
+        {
+            nome_textBox.Enabled = false;
+            identificador_textBox.Enabled = false;
+            senha_textBox.Enabled = false;
+            autenticacao_comboBox.Enabled = false;
+            email_textBox.Enabled = false;
+            tipo_comboBox.Enabled = false;
+            celular_maskedTextBox.Enabled = false;
+        }
+
+        private void LimparCampos()
+        {
+            nome_textBox.Clear();
+            identificador_textBox.Clear();
+            senha_textBox.Clear();
+            email_textBox.Clear();
+            autenticacao_comboBox.Text = "";
+            tipo_comboBox.Text = "";
+            celular_maskedTextBox.Clear();
         }
 
         private void iniciarOpc()
@@ -30,8 +62,65 @@ namespace GestorSAAE
                 case "Novo":
                     HabilitarCampos();
                     LimparCampos();
+                    nome_textBox.Focus();
                     break;
                 case "Salvar":
+                    try
+                    {
+                        if (identificador_textBox.Text.Trim() != "" &&
+                            senha_textBox.Text.Trim() != "")
+                        {
+                            objTabela.Nome = nome_textBox.Text.Trim();
+                            objTabela.Identificador = identificador_textBox.Text.Trim();
+                            objTabela.Senha = senha_textBox.Text.Trim();
+                            if (autenticacao_comboBox.Text == "Sim")
+                                objTabela.Autenticacao = true;
+                            else
+                                objTabela.Autenticacao = false;
+                            objTabela.Celular = celular_maskedTextBox.Text;
+                            objTabela.Email = email_textBox.Text.Trim();
+                            if (tipo_comboBox.Text == "Administrador")
+                                objTabela.Tipo = 0;
+                            else
+                                objTabela.Tipo = 1;
+
+                            if (FuncionarioModel.Inserir(objTabela))
+                            {
+                                MessageBox.Show(string.Format("Funcionário {0} foi inserido com sucesso!", nome_textBox.Text),
+                                    "Informação:",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show(string.Format("Funcionário {0} NÃO foi inserido!", nome_textBox.Text),
+                                    "ERRO! CONTACTE O SUPORTE!",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Entre com um identificador e uma senha válidos!",
+                                    "Atenção!",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+
+                            nome_textBox.Focus();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao Salvar: \n" + ex.Message,
+                            "ERRO! CONTACTE O SUPORTE!",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        LimparCampos();
+                        DesabilitarCampos();
+                    }
                     break;
                 case "Excluir":
                     break;
@@ -43,42 +132,66 @@ namespace GestorSAAE
 
         }
 
-        private void HabilitarCampos()
+        private void novo_button_Click(object sender, EventArgs e)
         {
-            nome_textBox.Enabled = true;
-            funcionario_textBox.Enabled = true;
-            senha_textBox.Enabled = true;
-            autenticacao_comboBox.Enabled = true;
-            email_textBox.Enabled = true;
-            tipo_comboBox.Enabled = true;           
-        }
+            opc = "Novo";
+            iniciarOpc();
 
-        private void LimparCampos()
-        {
-            nome_textBox.Clear();
-            funcionario_textBox.Clear();
-            senha_textBox.Clear();
-            email_textBox.Clear();
-            autenticacao_comboBox.Text = "";
-            tipo_comboBox.Text = "";
+            localizar_button.Enabled = false;
+            novo_button.Enabled = false;
+            salvar_button.Enabled = true;
+            editar_button.Enabled = false;
+            excluir_button.Enabled = false;
         }
 
         private void salvar_button_Click(object sender, EventArgs e)
         {
             opc = "Salvar";
             iniciarOpc();
+
+            localizar_button.Enabled = true;
+            novo_button.Enabled = true;
+            salvar_button.Enabled = false;
+            editar_button.Enabled = false;
+            excluir_button.Enabled = false;
         }
 
         private void excluir_button_Click(object sender, EventArgs e)
         {
             opc = "Excluir";
             iniciarOpc();
+
+            localizar_button.Enabled = true;
+            novo_button.Enabled = true;
+            salvar_button.Enabled = false;
+            editar_button.Enabled = false;
+            excluir_button.Enabled = false;
         }
 
         private void editar_button_Click(object sender, EventArgs e)
         {
             opc = "Editar";
             iniciarOpc();
+
+            localizar_button.Enabled = false;
+            novo_button.Enabled = false;
+            salvar_button.Enabled = true;
+            editar_button.Enabled = false;
+            excluir_button.Enabled = false;
+        }
+
+        private void localizar_button_Click(object sender, EventArgs e)
+        {
+            LocalizarForm form = new LocalizarForm();
+            form.ShowDialog();
+
+            //se localizar funcionários
+            //if()
+            //localizar_button.Enabled = true;
+            //novo_button.Enabled = false;
+            //salvar_button.Enabled = false;
+            //editar_button.Enabled = true;
+            //excluir_button.Enabled = true;
         }
     }
 }
