@@ -101,7 +101,7 @@ namespace GestorSAAE
                         }
                         else
                         {
-                            MessageBox.Show("Entre com um identificador e uma senha válidos!",
+                            MessageBox.Show("Digite um identificador e uma senha válidos!",
                                     "Atenção!",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation);

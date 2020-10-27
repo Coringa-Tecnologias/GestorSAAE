@@ -42,6 +42,8 @@ namespace GestorSAAE.View
             {
                 ListarGrid();
             }
+
+            MessageBox.Show(localizar_tabControl.TabPages.ToString());
         }
 
         private void cancelar_button_Click(object sender, EventArgs e)
