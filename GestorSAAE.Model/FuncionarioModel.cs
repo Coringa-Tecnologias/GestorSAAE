@@ -33,5 +33,20 @@ namespace GestorSAAE.Model
         {
             return new FuncionarioDAO().Exibe(objTabela);
         }
+
+        public static bool Excluir(FuncionarioEnt objTabela)
+        {
+            return new FuncionarioDAO().Excluir(objTabela);
+        }
+
+        public static bool Editar(FuncionarioEnt objTabela)
+        {
+            return new FuncionarioDAO().Editar(objTabela);
+        }
+
+        public static bool GerarQr(FuncionarioEnt objTabela)
+        {
+            return new FuncionarioDAO().GerarQr(objTabela);
+        }
     }
 }

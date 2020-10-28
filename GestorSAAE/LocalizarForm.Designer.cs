@@ -197,6 +197,7 @@
             // 
             // exibir_button
             // 
+            this.exibir_button.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.exibir_button.Enabled = false;
             this.exibir_button.Image = ((System.Drawing.Image)(resources.GetObject("exibir_button.Image")));
             this.exibir_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

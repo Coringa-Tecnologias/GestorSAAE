@@ -16,6 +16,7 @@ namespace GestorSAAE.Entidades
         private string celular;
         private string email;
         private int tipo;
+        private Image qrContato;
 
         public int Codigo 
         { 
@@ -56,6 +57,11 @@ namespace GestorSAAE.Entidades
         { 
             get => celular; 
             set => celular = value; 
+        }
+        public Image QrContato 
+        { 
+            get => qrContato; 
+            set => qrContato = value; 
         }
     }
 }

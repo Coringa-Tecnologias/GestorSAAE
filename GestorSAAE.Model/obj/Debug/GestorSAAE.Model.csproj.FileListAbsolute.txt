@@ -10,3 +10,5 @@ G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\Ges
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Model\obj\Debug\GestorSAAE.Model.dll
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Model\obj\Debug\GestorSAAE.Model.pdb
 G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Model\bin\Debug\GestorSAAE.DAO.dll.config
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Model\bin\Debug\ThoughtWorks.QRCode.dll
+G:\Coringa Tecnologias - 2020\Desenvolvimento\Sistema Gestor SAAE\GestorSAAE\GestorSAAE.Model\bin\Debug\ThoughtWorks.QRCode.pdb

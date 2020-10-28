@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using GestorSAAE.Entidades;
 using System.Data;
+using ThoughtWorks.QRCode.Codec;
+using ThoughtWorks.QRCode.Codec.Data;
+using ThoughtWorks.QRCode.Codec.Util;
 
 namespace GestorSAAE.DAO
 {
@@ -39,8 +42,125 @@ namespace GestorSAAE.DAO
                 else
                     return false;
             }
+        }
 
+        public bool GerarQr(FuncionarioEnt objTabela)
+        {
+            QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
+            String encoding = "Byte";
+            if (encoding == "Byte")
+            {
+                qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
+            }
+            else if (encoding == "AlphaNumeric")
+            {
+                qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.ALPHA_NUMERIC;
+            }
+            else if (encoding == "Numeric")
+            {
+                qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.NUMERIC;
+            }
+            try
+            {
+                int scale = Convert.ToInt32("40");
+                qrCodeEncoder.QRCodeScale = scale;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Tamanho inválido!");
+                return false;
+            }
+            try
+            {
+                int version = Convert.ToInt32("12");
+                qrCodeEncoder.QRCodeVersion = version;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Versão inválida!");
+                return false;
+            }
 
+            string errorCorrect = "H";
+            if (errorCorrect == "L")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.L;
+            else if (errorCorrect == "M")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.M;
+            else if (errorCorrect == "Q")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.Q;
+            else if (errorCorrect == "H")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.H;
+
+            String data = "BEGIN:VCARD" + Environment.NewLine;
+            data += "VERSION:2.1" + Environment.NewLine;
+            data += "FN:" + objTabela.Nome + Environment.NewLine;
+            data += "TEL;CELL;VOICE:" + objTabela.Celular + Environment.NewLine;
+            data += "EMAIL;PREF;INTERNET:" + objTabela.Email + Environment.NewLine;
+            data += "END:VCARD" + Environment.NewLine;
+            objTabela.QrContato = qrCodeEncoder.Encode(data);
+
+            if (objTabela.QrContato != null)
+                return true;
+            else
+                return false;
+
+        }
+
+        public bool Editar(FuncionarioEnt objTabela)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+
+                cn.CommandText = "UPDATE Funcionario SET nome  = @nome, identificador = @identificador, senha = @senha, autenticacao = @autenticacao, celular = @celular, email = @email, tipo = @tipo WHERE codigo = @codigo";
+
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = objTabela.Codigo;
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = objTabela.Nome;
+                cn.Parameters.Add("identificador", SqlDbType.VarChar).Value = objTabela.Identificador;
+                cn.Parameters.Add("senha", SqlDbType.VarChar).Value = objTabela.Senha;
+                cn.Parameters.Add("autenticacao", SqlDbType.Bit).Value = objTabela.Autenticacao;
+                cn.Parameters.Add("celular", SqlDbType.VarChar).Value = objTabela.Celular;
+                cn.Parameters.Add("email", SqlDbType.VarChar).Value = objTabela.Email;
+                cn.Parameters.Add("tipo", SqlDbType.Int).Value = objTabela.Tipo;
+
+                cn.Connection = con;
+
+                int qtd = cn.ExecuteNonQuery();
+
+                if (qtd > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public bool Excluir(FuncionarioEnt objTabela)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+
+                cn.CommandText = "DELETE FROM Funcionario WHERE codigo = @codigo";
+
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = objTabela.Codigo;
+
+                cn.Connection = con;
+
+                int qtd = cn.ExecuteNonQuery();
+
+                if (qtd > 0)
+                    return true;
+                else
+                    return false;
+            }
         }
 
         public List<FuncionarioEnt> Exibe(FuncionarioEnt objTabela)

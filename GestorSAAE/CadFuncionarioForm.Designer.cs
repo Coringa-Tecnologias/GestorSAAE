@@ -138,6 +138,7 @@
             this.senha_textBox.Name = "senha_textBox";
             this.senha_textBox.Size = new System.Drawing.Size(371, 20);
             this.senha_textBox.TabIndex = 7;
+            this.senha_textBox.UseSystemPasswordChar = true;
             // 
             // autenticacao_comboBox
             // 
@@ -304,6 +305,7 @@
             this.qr_button.TabIndex = 16;
             this.qr_button.Text = "Qr de &Cadastro";
             this.qr_button.UseVisualStyleBackColor = true;
+            this.qr_button.Click += new System.EventHandler(this.qr_button_Click);
             // 
             // codigo_label1
             // 
