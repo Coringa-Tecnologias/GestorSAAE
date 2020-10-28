@@ -160,6 +160,8 @@
             this.localizar_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.localizar_dataGridView.Size = new System.Drawing.Size(505, 111);
             this.localizar_dataGridView.TabIndex = 2;
+            this.localizar_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.localizar_dataGridView_CellClick);
+            this.localizar_dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.localizar_dataGridView_CellDoubleClick);
             // 
             // codigo
             // 
@@ -195,6 +197,7 @@
             // 
             // exibir_button
             // 
+            this.exibir_button.Enabled = false;
             this.exibir_button.Image = ((System.Drawing.Image)(resources.GetObject("exibir_button.Image")));
             this.exibir_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exibir_button.Location = new System.Drawing.Point(523, 78);
@@ -203,6 +206,7 @@
             this.exibir_button.TabIndex = 3;
             this.exibir_button.Text = "&Exibir";
             this.exibir_button.UseVisualStyleBackColor = true;
+            this.exibir_button.Click += new System.EventHandler(this.exibir_button_Click);
             // 
             // cancelar_button
             // 

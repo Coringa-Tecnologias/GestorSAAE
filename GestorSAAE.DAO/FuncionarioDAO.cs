@@ -43,6 +43,103 @@ namespace GestorSAAE.DAO
 
         }
 
+        public List<FuncionarioEnt> Exibe(FuncionarioEnt objTabela)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+
+                cn.CommandText = "SELECT * FROM Funcionario WHERE codigo = @codigo ORDER BY nome";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = objTabela.Codigo;
+
+                cn.Connection = con;
+
+                SqlDataReader dr;
+                List<FuncionarioEnt> lista = new List<FuncionarioEnt>();
+
+                dr = cn.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        FuncionarioEnt dado = new FuncionarioEnt();
+                        dado.Codigo = Convert.ToInt32(dr["codigo"]);
+                        dado.Nome = Convert.ToString(dr["nome"]);
+                        dado.Identificador = Convert.ToString(dr["identificador"]);
+                        dado.Senha = Convert.ToString(dr["senha"]);
+                        dado.Autenticacao = Convert.ToBoolean(dr["autenticacao"]);
+                        dado.Celular = Convert.ToString(dr["celular"]);
+                        dado.Email = Convert.ToString(dr["email"]);
+                        dado.Tipo = Convert.ToInt32(dr["tipo"]);
+
+                        lista.Add(dado);
+                    }
+                }
+
+                return lista;
+            }
+        }
+
+        public List<FuncionarioEnt> Lista(string campo, FuncionarioEnt objTabela)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+
+                if (campo == "Código")
+                {
+                    cn.CommandText = "SELECT * FROM Funcionario WHERE codigo = @codigo ORDER BY nome";
+                    cn.Parameters.Add("codigo", SqlDbType.Int).Value = objTabela.Codigo;
+                }
+                else if (campo == "Nome")
+                {
+                    cn.CommandText = "SELECT * FROM Funcionario WHERE nome like @nome ORDER BY nome";
+                    cn.Parameters.Add("nome", SqlDbType.VarChar).Value = "%" + objTabela.Nome + "%";
+                }
+                else if (campo == "E-mail")
+                {
+                    cn.CommandText = "SELECT * FROM Funcionario WHERE email like @email ORDER BY nome";
+                    cn.Parameters.Add("email", SqlDbType.VarChar).Value = "%" + objTabela.Email + "%";
+                }
+
+                cn.Connection = con;
+
+                SqlDataReader dr;
+                List<FuncionarioEnt> lista = new List<FuncionarioEnt>();
+
+                dr = cn.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        FuncionarioEnt dado = new FuncionarioEnt();
+                        dado.Codigo = Convert.ToInt32(dr["codigo"]);
+                        dado.Nome = Convert.ToString(dr["nome"]);
+                        dado.Identificador = Convert.ToString(dr["identificador"]);
+                        dado.Senha = Convert.ToString(dr["senha"]);
+                        dado.Autenticacao = Convert.ToBoolean(dr["autenticacao"]);
+                        dado.Celular = Convert.ToString(dr["celular"]);
+                        dado.Email = Convert.ToString(dr["email"]);
+                        dado.Tipo = Convert.ToInt32(dr["tipo"]);
+
+                        lista.Add(dado);
+                    }
+                }
+
+                return lista;
+            }
+        }
+
         public FuncionarioEnt Login(FuncionarioEnt obj)
         {
             using (SqlConnection con = new SqlConnection())

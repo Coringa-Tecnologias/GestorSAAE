@@ -15,6 +15,7 @@ namespace GestorSAAE
     public partial class CadFuncionarioForm : Form
     {
         FuncionarioEnt objTabela = new FuncionarioEnt();
+        bool novo = false;
         
         private string opc = "";
         public CadFuncionarioForm()
@@ -46,6 +47,7 @@ namespace GestorSAAE
 
         private void LimparCampos()
         {
+            codigo_label1.Text = "";
             nome_textBox.Clear();
             identificador_textBox.Clear();
             senha_textBox.Clear();
@@ -67,46 +69,53 @@ namespace GestorSAAE
                 case "Salvar":
                     try
                     {
-                        if (identificador_textBox.Text.Trim() != "" &&
-                            senha_textBox.Text.Trim() != "")
+                        if (novo)
                         {
-                            objTabela.Nome = nome_textBox.Text.Trim();
-                            objTabela.Identificador = identificador_textBox.Text.Trim();
-                            objTabela.Senha = senha_textBox.Text.Trim();
-                            if (autenticacao_comboBox.Text == "Sim")
-                                objTabela.Autenticacao = true;
-                            else
-                                objTabela.Autenticacao = false;
-                            objTabela.Celular = celular_maskedTextBox.Text;
-                            objTabela.Email = email_textBox.Text.Trim();
-                            if (tipo_comboBox.Text == "Administrador")
-                                objTabela.Tipo = 0;
-                            else
-                                objTabela.Tipo = 1;
-
-                            if (FuncionarioModel.Inserir(objTabela))
+                            if (identificador_textBox.Text.Trim() != "" &&
+                            senha_textBox.Text.Trim() != "")
                             {
-                                MessageBox.Show(string.Format("Funcionário {0} foi inserido com sucesso!", nome_textBox.Text),
-                                    "Informação:",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                objTabela.Nome = nome_textBox.Text.Trim();
+                                objTabela.Identificador = identificador_textBox.Text.Trim();
+                                objTabela.Senha = senha_textBox.Text.Trim();
+                                if (autenticacao_comboBox.Text == "Sim")
+                                    objTabela.Autenticacao = true;
+                                else
+                                    objTabela.Autenticacao = false;
+                                objTabela.Celular = celular_maskedTextBox.Text;
+                                objTabela.Email = email_textBox.Text.Trim();
+                                if (tipo_comboBox.Text == "Administrador")
+                                    objTabela.Tipo = 0;
+                                else
+                                    objTabela.Tipo = 1;
+
+                                if (FuncionarioModel.Inserir(objTabela))
+                                {
+                                    MessageBox.Show(string.Format("Funcionário {0} foi inserido com sucesso!", nome_textBox.Text),
+                                        "Informação:",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(string.Format("Funcionário {0} NÃO foi inserido!", nome_textBox.Text),
+                                        "ERRO! CONTACTE O SUPORTE!",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show(string.Format("Funcionário {0} NÃO foi inserido!", nome_textBox.Text),
-                                    "ERRO! CONTACTE O SUPORTE!",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
+                                MessageBox.Show("Digite um identificador e uma senha válidos!",
+                                        "Atenção!",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation);
+
+                                nome_textBox.Focus();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Digite um identificador e uma senha válidos!",
-                                    "Atenção!",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Exclamation);
 
-                            nome_textBox.Focus();
                         }
                     }
                     catch (Exception ex)
@@ -118,13 +127,15 @@ namespace GestorSAAE
                     }
                     finally
                     {
-                        LimparCampos();
+                        //LimparCampos();
                         DesabilitarCampos();
+                        novo = false;
                     }
                     break;
                 case "Excluir":
                     break;
                 case "Editar":
+                    HabilitarCampos();
                     break;
                 default:
                     break;
@@ -135,6 +146,7 @@ namespace GestorSAAE
         private void novo_button_Click(object sender, EventArgs e)
         {
             opc = "Novo";
+            novo = true;
             iniciarOpc();
 
             localizar_button.Enabled = false;
@@ -185,13 +197,26 @@ namespace GestorSAAE
             LocalizarForm form = new LocalizarForm();
             form.ShowDialog();
 
-            //se localizar funcionários
-            //if()
-            //localizar_button.Enabled = true;
-            //novo_button.Enabled = false;
-            //salvar_button.Enabled = false;
-            //editar_button.Enabled = true;
-            //excluir_button.Enabled = true;
+            codigo_label1.Text = form.funcionario[0].Codigo.ToString();
+            nome_textBox.Text = form.funcionario[0].Nome;
+            identificador_textBox.Text = form.funcionario[0].Identificador;
+            senha_textBox.Text = form.funcionario[0].Senha;
+            if (form.funcionario[0].Autenticacao == false)
+                autenticacao_comboBox.Text = "Não";
+            else
+                autenticacao_comboBox.Text = "Sim";
+            celular_maskedTextBox.Text = form.funcionario[0].Celular;
+            email_textBox.Text = form.funcionario[0].Email;
+            if (form.funcionario[0].Tipo == 0)
+                tipo_comboBox.Text = "Administrador";
+            else
+                tipo_comboBox.Text = "Usuário";
+
+            localizar_button.Enabled = true;
+            novo_button.Enabled = false;
+            salvar_button.Enabled = false;
+            editar_button.Enabled = true;
+            excluir_button.Enabled = true;
         }
     }
 }

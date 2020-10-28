@@ -23,5 +23,15 @@ namespace GestorSAAE.Model
         {
             return new FuncionarioDAO().Login(objTabela);
         }
+
+        public List<FuncionarioEnt> Lista(string campo, FuncionarioEnt objTabela)
+        {
+            return new FuncionarioDAO().Lista(campo, objTabela);
+        }
+
+        public List<FuncionarioEnt> Exibir(FuncionarioEnt objTabela)
+        {
+            return new FuncionarioDAO().Exibe(objTabela);
+        }
     }
 }
