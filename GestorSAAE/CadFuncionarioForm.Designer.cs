@@ -55,6 +55,7 @@
             this.codigo_label = new System.Windows.Forms.Label();
             this.localizar_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.altSenha_checkBox = new System.Windows.Forms.CheckBox();
             this.funcionario_groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.senha_label.Location = new System.Drawing.Point(8, 100);
             this.senha_label.Name = "senha_label";
             this.senha_label.Size = new System.Drawing.Size(41, 13);
-            this.senha_label.TabIndex = 6;
+            this.senha_label.TabIndex = 7;
             this.senha_label.Text = "Senha:";
             // 
             // autenticacao_label
@@ -91,7 +92,7 @@
             this.autenticacao_label.Location = new System.Drawing.Point(8, 126);
             this.autenticacao_label.Name = "autenticacao_label";
             this.autenticacao_label.Size = new System.Drawing.Size(73, 13);
-            this.autenticacao_label.TabIndex = 8;
+            this.autenticacao_label.TabIndex = 9;
             this.autenticacao_label.Text = "Autenticação:";
             // 
             // email_label
@@ -100,7 +101,7 @@
             this.email_label.Location = new System.Drawing.Point(8, 153);
             this.email_label.Name = "email_label";
             this.email_label.Size = new System.Drawing.Size(38, 13);
-            this.email_label.TabIndex = 12;
+            this.email_label.TabIndex = 13;
             this.email_label.Text = "E-mail:";
             // 
             // tipo_label
@@ -109,7 +110,7 @@
             this.tipo_label.Location = new System.Drawing.Point(8, 179);
             this.tipo_label.Name = "tipo_label";
             this.tipo_label.Size = new System.Drawing.Size(31, 13);
-            this.tipo_label.TabIndex = 14;
+            this.tipo_label.TabIndex = 15;
             this.tipo_label.Text = "Tipo:";
             // 
             // nome_textBox
@@ -127,7 +128,7 @@
             this.identificador_textBox.Enabled = false;
             this.identificador_textBox.Location = new System.Drawing.Point(88, 71);
             this.identificador_textBox.Name = "identificador_textBox";
-            this.identificador_textBox.Size = new System.Drawing.Size(371, 20);
+            this.identificador_textBox.Size = new System.Drawing.Size(275, 20);
             this.identificador_textBox.TabIndex = 5;
             // 
             // senha_textBox
@@ -137,7 +138,7 @@
             this.senha_textBox.Location = new System.Drawing.Point(88, 97);
             this.senha_textBox.Name = "senha_textBox";
             this.senha_textBox.Size = new System.Drawing.Size(371, 20);
-            this.senha_textBox.TabIndex = 7;
+            this.senha_textBox.TabIndex = 8;
             this.senha_textBox.UseSystemPasswordChar = true;
             // 
             // autenticacao_comboBox
@@ -152,7 +153,7 @@
             this.autenticacao_comboBox.Location = new System.Drawing.Point(88, 123);
             this.autenticacao_comboBox.Name = "autenticacao_comboBox";
             this.autenticacao_comboBox.Size = new System.Drawing.Size(159, 21);
-            this.autenticacao_comboBox.TabIndex = 9;
+            this.autenticacao_comboBox.TabIndex = 10;
             // 
             // email_textBox
             // 
@@ -161,7 +162,7 @@
             this.email_textBox.Location = new System.Drawing.Point(88, 150);
             this.email_textBox.Name = "email_textBox";
             this.email_textBox.Size = new System.Drawing.Size(371, 20);
-            this.email_textBox.TabIndex = 13;
+            this.email_textBox.TabIndex = 14;
             // 
             // tipo_comboBox
             // 
@@ -175,7 +176,7 @@
             this.tipo_comboBox.Location = new System.Drawing.Point(88, 176);
             this.tipo_comboBox.Name = "tipo_comboBox";
             this.tipo_comboBox.Size = new System.Drawing.Size(159, 21);
-            this.tipo_comboBox.TabIndex = 15;
+            this.tipo_comboBox.TabIndex = 16;
             // 
             // novo_button
             // 
@@ -253,6 +254,7 @@
             // 
             this.funcionario_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.funcionario_groupBox.Controls.Add(this.altSenha_checkBox);
             this.funcionario_groupBox.Controls.Add(this.celular_maskedTextBox);
             this.funcionario_groupBox.Controls.Add(this.celular_label);
             this.funcionario_groupBox.Controls.Add(this.qr_button);
@@ -283,7 +285,7 @@
             this.celular_maskedTextBox.Mask = "(99) 9 0000-0000";
             this.celular_maskedTextBox.Name = "celular_maskedTextBox";
             this.celular_maskedTextBox.Size = new System.Drawing.Size(158, 20);
-            this.celular_maskedTextBox.TabIndex = 11;
+            this.celular_maskedTextBox.TabIndex = 12;
             this.celular_maskedTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // celular_label
@@ -292,7 +294,7 @@
             this.celular_label.Location = new System.Drawing.Point(253, 128);
             this.celular_label.Name = "celular_label";
             this.celular_label.Size = new System.Drawing.Size(42, 13);
-            this.celular_label.TabIndex = 10;
+            this.celular_label.TabIndex = 11;
             this.celular_label.Text = "Celular:";
             // 
             // qr_button
@@ -302,7 +304,7 @@
             this.qr_button.Location = new System.Drawing.Point(365, 174);
             this.qr_button.Name = "qr_button";
             this.qr_button.Size = new System.Drawing.Size(94, 23);
-            this.qr_button.TabIndex = 16;
+            this.qr_button.TabIndex = 17;
             this.qr_button.Text = "Qr de &Cadastro";
             this.qr_button.UseVisualStyleBackColor = true;
             this.qr_button.Click += new System.EventHandler(this.qr_button_Click);
@@ -348,6 +350,19 @@
             this.label3.Size = new System.Drawing.Size(194, 36);
             this.label3.TabIndex = 0;
             this.label3.Text = "Funcionários";
+            // 
+            // altSenha_checkBox
+            // 
+            this.altSenha_checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.altSenha_checkBox.AutoSize = true;
+            this.altSenha_checkBox.Enabled = false;
+            this.altSenha_checkBox.Location = new System.Drawing.Point(369, 73);
+            this.altSenha_checkBox.Name = "altSenha_checkBox";
+            this.altSenha_checkBox.Size = new System.Drawing.Size(90, 17);
+            this.altSenha_checkBox.TabIndex = 6;
+            this.altSenha_checkBox.Text = "Alterar Senha";
+            this.altSenha_checkBox.UseVisualStyleBackColor = true;
+            this.altSenha_checkBox.CheckedChanged += new System.EventHandler(this.altSenha_checkBox_CheckedChanged);
             // 
             // CadFuncionarioForm
             // 
@@ -400,5 +415,6 @@
         private System.Windows.Forms.Button qr_button;
         private System.Windows.Forms.Label celular_label;
         private System.Windows.Forms.MaskedTextBox celular_maskedTextBox;
+        private System.Windows.Forms.CheckBox altSenha_checkBox;
     }
 }

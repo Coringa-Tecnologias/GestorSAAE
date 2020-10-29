@@ -142,7 +142,7 @@
             this.localizar_dataGridView.AllowUserToAddRows = false;
             this.localizar_dataGridView.AllowUserToDeleteRows = false;
             this.localizar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.localizar_dataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.localizar_dataGridView.BackgroundColor = System.Drawing.Color.MediumAquamarine;
             this.localizar_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.localizar_dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.localizar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

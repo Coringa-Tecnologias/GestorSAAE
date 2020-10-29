@@ -1,13 +1,9 @@
-﻿using System;
+﻿using GestorSAAE.Entidades;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using GestorSAAE.Entidades;
 using System.Data;
+using System.Data.SqlClient;
 using ThoughtWorks.QRCode.Codec;
-using ThoughtWorks.QRCode.Codec.Data;
-using ThoughtWorks.QRCode.Codec.Util;
 
 namespace GestorSAAE.DAO
 {
@@ -23,7 +19,7 @@ namespace GestorSAAE.DAO
 
                 con.Open();
 
-                cn.CommandText = "INSERT INTO Funcionario ([nome], [identificador], [senha], [autenticacao],[celular], [email], [tipo]) VALUES(@nome, @identificador, @senha, @autenticacao, @celular, @email, @tipo)";
+                cn.CommandText = "INSERT INTO Funcionario ([nome], [identificador], [senha], [autenticacao],[celular], [email], [tipo]) VALUES(@nome, @identificador, PWDENCRYPT(@senha), @autenticacao, @celular, @email, @tipo)";
 
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = objTabela.Nome;
                 cn.Parameters.Add("identificador", SqlDbType.VarChar).Value = objTabela.Identificador;
@@ -49,20 +45,14 @@ namespace GestorSAAE.DAO
             QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
             String encoding = "Byte";
             if (encoding == "Byte")
-            {
                 qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
-            }
             else if (encoding == "AlphaNumeric")
-            {
                 qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.ALPHA_NUMERIC;
-            }
             else if (encoding == "Numeric")
-            {
                 qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.NUMERIC;
-            }
             try
             {
-                int scale = Convert.ToInt32("40");
+                int scale = Convert.ToInt32("4");
                 qrCodeEncoder.QRCodeScale = scale;
             }
             catch (Exception ex)
@@ -72,7 +62,7 @@ namespace GestorSAAE.DAO
             }
             try
             {
-                int version = Convert.ToInt32("12");
+                int version = Convert.ToInt32("20");
                 qrCodeEncoder.QRCodeVersion = version;
             }
             catch (Exception ex)
@@ -96,17 +86,17 @@ namespace GestorSAAE.DAO
             data += "FN:" + objTabela.Nome + Environment.NewLine;
             data += "TEL;CELL;VOICE:" + objTabela.Celular + Environment.NewLine;
             data += "EMAIL;PREF;INTERNET:" + objTabela.Email + Environment.NewLine;
-            data += "END:VCARD" + Environment.NewLine;
+            data += "END:VCARD";
+
             objTabela.QrContato = qrCodeEncoder.Encode(data);
 
             if (objTabela.QrContato != null)
                 return true;
             else
                 return false;
-
         }
 
-        public bool Editar(FuncionarioEnt objTabela)
+        public bool Editar(FuncionarioEnt objTabela, bool altSenha)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -116,12 +106,16 @@ namespace GestorSAAE.DAO
 
                 con.Open();
 
-                cn.CommandText = "UPDATE Funcionario SET nome  = @nome, identificador = @identificador, senha = @senha, autenticacao = @autenticacao, celular = @celular, email = @email, tipo = @tipo WHERE codigo = @codigo";
+                if(altSenha)
+                    cn.CommandText = "UPDATE Funcionario SET nome  = @nome, identificador = @identificador, senha = PWDENCRYPT(@senha), autenticacao = @autenticacao, celular = @celular, email = @email, tipo = @tipo WHERE codigo = @codigo";
+                else
+                    cn.CommandText = "UPDATE Funcionario SET nome  = @nome, identificador = @identificador, autenticacao = @autenticacao, celular = @celular, email = @email, tipo = @tipo WHERE codigo = @codigo";
 
                 cn.Parameters.Add("codigo", SqlDbType.Int).Value = objTabela.Codigo;
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = objTabela.Nome;
                 cn.Parameters.Add("identificador", SqlDbType.VarChar).Value = objTabela.Identificador;
-                cn.Parameters.Add("senha", SqlDbType.VarChar).Value = objTabela.Senha;
+                if (altSenha)
+                    cn.Parameters.Add("senha", SqlDbType.VarChar).Value = objTabela.Senha;
                 cn.Parameters.Add("autenticacao", SqlDbType.Bit).Value = objTabela.Autenticacao;
                 cn.Parameters.Add("celular", SqlDbType.VarChar).Value = objTabela.Celular;
                 cn.Parameters.Add("email", SqlDbType.VarChar).Value = objTabela.Email;
@@ -270,7 +264,7 @@ namespace GestorSAAE.DAO
 
                 con.Open();
 
-                cn.CommandText = "SELECT * FROM Funcionario WHERE identificador = @identificador AND senha = @senha";
+                cn.CommandText = "SELECT * FROM Funcionario WHERE identificador = @identificador AND PWDCOMPARE(@senha, senha) = 1";
 
                 cn.Connection = con;
 

@@ -51,7 +51,7 @@ namespace GestorSAAE
                 }
                 else
                 {
-                    CadFuncionarioForm form = new CadFuncionarioForm();
+                    MDIParent form = new MDIParent();
                     this.Hide();
                     form.Show();
 

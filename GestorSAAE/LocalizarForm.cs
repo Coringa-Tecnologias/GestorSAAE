@@ -67,6 +67,14 @@ namespace GestorSAAE.View
                     codigo_textBox.Focus();
                 }
                 ListarGrid(localizar_tabControl.SelectedTab.Text);
+                if (localizar_dataGridView.Rows.Count == 0)
+                {
+                    MessageBox.Show("Nenhum funcionário encontrado!",
+                        "Atenção!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    this.Refresh();
+                }
             }
         }
 

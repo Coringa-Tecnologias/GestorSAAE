@@ -29,7 +29,7 @@ namespace GestorSAAE
         {
             nome_textBox.Enabled = true;
             identificador_textBox.Enabled = true;
-            senha_textBox.Enabled = true;
+            //senha_textBox.Enabled = true;
             autenticacao_comboBox.Enabled = true;
             email_textBox.Enabled = true;
             tipo_comboBox.Enabled = true;
@@ -108,9 +108,12 @@ namespace GestorSAAE
                             if (identificador_textBox.Text.Trim() != "" &&
                             senha_textBox.Text.Trim() != "")
                             {
+                                objTabela.Codigo = Convert.ToInt32(codigo_label1.Text);
                                 CarregarObjTabela();
 
-                                if (FuncionarioModel.Editar(objTabela))
+                                bool altSenha = altSenha_checkBox.Checked;
+
+                                if (FuncionarioModel.Editar(objTabela, altSenha))
                                 {
                                     MessageBox.Show(string.Format("Funcionário {0} foi editado com sucesso!", nome_textBox.Text),
                                         "Informação:",
@@ -155,6 +158,7 @@ namespace GestorSAAE
                     {
                         if (codigo_label1.Text != "")
                         {
+                            objTabela.Codigo = Convert.ToInt32(codigo_label1.Text);
                             CarregarObjTabela();
 
                             DialogResult result = new DialogResult();
@@ -231,7 +235,6 @@ namespace GestorSAAE
 
         private void CarregarObjTabela()
         {
-            objTabela.Codigo = Convert.ToInt32(codigo_label1.Text);
             objTabela.Nome = nome_textBox.Text.Trim();
             objTabela.Identificador = identificador_textBox.Text.Trim();
             objTabela.Senha = senha_textBox.Text.Trim();
@@ -247,11 +250,20 @@ namespace GestorSAAE
                 objTabela.Tipo = 1;
         }
 
+        private Image GerarQrContato(FuncionarioEnt objTabela)
+        {
+            FuncionarioModel.GerarQr(objTabela);
+
+            return objTabela.QrContato;
+        }
+
         private void novo_button_Click(object sender, EventArgs e)
         {
             opc = "Novo";
             novo = true;
             iniciarOpc();
+
+            senha_textBox.Enabled = true;
 
             localizar_button.Enabled = false;
             novo_button.Enabled = false;
@@ -259,6 +271,8 @@ namespace GestorSAAE
             editar_button.Enabled = false;
             excluir_button.Enabled = false;
             qr_button.Enabled = false;
+            altSenha_checkBox.Enabled = false;
+            altSenha_checkBox.CheckState = CheckState.Unchecked;
         }
 
         private void salvar_button_Click(object sender, EventArgs e)
@@ -272,6 +286,8 @@ namespace GestorSAAE
             editar_button.Enabled = false;
             excluir_button.Enabled = false;
             qr_button.Enabled = false;
+            altSenha_checkBox.Enabled = false;
+            altSenha_checkBox.CheckState = CheckState.Unchecked;
         }
 
         private void excluir_button_Click(object sender, EventArgs e)
@@ -285,6 +301,8 @@ namespace GestorSAAE
             editar_button.Enabled = false;
             excluir_button.Enabled = false;
             qr_button.Enabled = false;
+            altSenha_checkBox.Enabled = false;
+            altSenha_checkBox.CheckState = CheckState.Unchecked;
         }
 
         private void editar_button_Click(object sender, EventArgs e)
@@ -298,6 +316,8 @@ namespace GestorSAAE
             editar_button.Enabled = false;
             excluir_button.Enabled = false;
             qr_button.Enabled = false;
+            altSenha_checkBox.Enabled = true;
+            altSenha_checkBox.CheckState = CheckState.Unchecked;
         }
 
         private void localizar_button_Click(object sender, EventArgs e)
@@ -331,6 +351,8 @@ namespace GestorSAAE
                     editar_button.Enabled = true;
                     excluir_button.Enabled = true;
                     qr_button.Enabled = true;
+                    altSenha_checkBox.Enabled = false;
+                    altSenha_checkBox.CheckState = CheckState.Unchecked;
                     break;
                 default:
                     break;  
@@ -339,17 +361,19 @@ namespace GestorSAAE
 
         private void qr_button_Click(object sender, EventArgs e)
         {
-            //CarregarObjTabela();
+            objTabela.Codigo = Convert.ToInt32(codigo_label1.Text);
+            CarregarObjTabela();
             QrFuncionarioForm formQrContato = new QrFuncionarioForm();
             formQrContato.qrContato = GerarQrContato(objTabela);
             formQrContato.ShowDialog();
         }
 
-        private Image GerarQrContato(FuncionarioEnt objTabela)
+        private void altSenha_checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            FuncionarioModel.GerarQr(objTabela);
-
-            return objTabela.QrContato;
+            if (altSenha_checkBox.Checked)
+                senha_textBox.Enabled = true;
+            else
+                senha_textBox.Enabled = false;
         }
     }
 }
